@@ -40,3 +40,18 @@ Combine
 composite smallBetaRibbon.png test.png test2.png
 ```
 
+Shell
+
+```
+echo "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+echo "${SRCROOT}"
+```
+
+[many build settings’ variables](https://developer.apple.com/legacy/library/documentation/DeveloperTools/Reference/XcodeBuildSettingRef/0-Introduction/introduction.html)
+
+Find Soure Path
+
+```
+IFS=$'\n'
+echo $(find ${SRCROOT} -name "AppIcon60x60@2x.png")
+```

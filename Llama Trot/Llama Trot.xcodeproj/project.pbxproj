@@ -145,7 +145,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"Hello World\"";
+			shellScript = "echo \"Hello World\"\necho \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\necho \"${SRCROOT}\"\n\nIFS=$'\\n'\necho $(find ${SRCROOT} -name \"AppIcon60x60@2x.png\")\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
