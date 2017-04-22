@@ -24,3 +24,19 @@ convert AppIcon60x60@2x.png -fill white -font Times-Bold -pointsize 18 -gravity 
 - annotate 0 “Hello World” tells ImageMagick to annotate the image with the text Hello World at an angle of 0 degrees;
 test.png is the name of the output file,and ImageMagick will overwrite the existing file if it already exists.
 
+Check supported Font
+
+```
+convert -list font
+```
+Change Size
+
+```
+convert betaRibbon.png -resize 120x120 smallBetaRibbon.png
+```
+Combine
+
+```
+composite smallBetaRibbon.png test.png test2.png
+```
+
