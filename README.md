@@ -1,12 +1,12 @@
-#[How To Change Your App Icon at Build Time](https://www.raywenderlich.com/105641/change-app-icon-build-time)
+# [How To Change Your App Icon at Build Time](https://www.raywenderlich.com/105641/change-app-icon-build-time)
 
-##Add toos:
+## Add toos:
 ```
  brew install ImageMagick
  brew install ghostscript
  brew doctor
 ```
-##Conver and Composite 
+## Conver and Composite 
 
 - Conver: take an image and modifies it,then save as a new
 - Compositie: combine two image together,save as third
