@@ -55,3 +55,32 @@ Find Soure Path
 IFS=$'\n'
 echo $(find ${SRCROOT} -name "AppIcon60x60@2x.png")
 ```
+脚本处理完后的图片添加到ipa 中
+
+```
+PATH=${PATH}:/usr/local/bin
+IFS=$'\n'
+ 
+function generateIcon () {
+  BASE_IMAGE_NAME=$1
+ 
+  TARGET_PATH="${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${BASE_IMAGE_NAME}"
+  BASE_IMAGE_PATH=$(find ${SRCROOT} -name ${BASE_IMAGE_NAME})
+ 
+  WIDTH=$(identify -format %w ${BASE_IMAGE_PATH})
+ 
+  convert betaRibbon.png -resize $WIDTHx$WIDTH resizedRibbon.png
+  convert ${BASE_IMAGE_PATH} -fill white -font Times-Bold -pointsize 18 -gravity south -annotate 0 "Hello World" - | composite resizedRibbon.png - ${TARGET_PATH}
+}
+ 
+generateIcon "AppIcon60x60@2x.png"
+generateIcon "AppIcon60x60@3x.png"
+
+```
+
+获取版本号：
+
+```
+buildNumber=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${PROJECT_DIR}/${INFOPLIST_FILE}")
+
+```
